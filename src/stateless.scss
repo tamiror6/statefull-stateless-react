@@ -1,0 +1,55 @@
+body {
+  background: #efefef;
+
+  #app {
+    max-width: 1000px;
+    background: white;
+    margin: 0 auto;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    padding: 20px 40px;
+  }
+
+  .container {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #efefef;
+    padding-bottom: 30px;
+
+    .content {
+      padding-top: 50px;
+    }
+  }
+
+  .image-view {
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .framer {
+    padding: 20px;
+    .content {
+      background: white;
+    }
+  }
+
+  .simple-canvas {
+    width: 500px;
+    height: 500px;
+
+    .row {
+      display: flex;
+    }
+
+    .cell {
+      height: 40px;
+      width: 100%;
+    }
+  }
+}
+.todo-2 {
+  display: flex;
+}
+img {
+  max-width: 100%;
+}

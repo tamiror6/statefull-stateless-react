@@ -1,0 +1,84 @@
+body {
+  background: #efefef;
+}
+body #app {
+  max-width: 1000px;
+  background: white;
+  margin: 0 auto;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  padding: 20px 40px;
+}
+body .container {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 30px;
+}
+body .container .content {
+  padding-top: 50px;
+}
+body .image-view img {
+  max-width: 100%;
+}
+body .framer {
+  padding: 20px;
+}
+body .framer .content {
+  background: white;
+}
+body .simple-canvas {
+  width: 500px;
+  height: 500px;
+}
+body .simple-canvas .row {
+  display: flex;
+}
+body .simple-canvas .cell {
+  height: 40px;
+  width: 100%;
+}
+body .todo-app {
+  background: #efefef;
+  padding: 20px 10px;
+  width: 500px;
+}
+body .todo-app .search-input {
+  margin-bottom: 20px;
+}
+body .todo-app .todo-items .todo-2 {
+  padding: 5px 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  display: flex;
+  cursor: pointer;
+}
+body .todo-app .todo-items .todo-2 button {
+  background: pink;
+  display: block;
+  margin-left: auto;
+}
+body .todo-app .todo-items .todo-2 .todo-item {
+  display: inline-block;
+}
+body .todo-app .addition-bar {
+  display: flex;
+  justify-content: center;
+}
+body .todo-app .addition-bar .add {
+  background: #0099ff;
+  cursor: pointer;
+  color: white;
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 2px;
+}
+body .todo-app .addition-bar input {
+  margin-right: 5px;
+}
+
+img {
+  max-width: 100%;
+}
+
+/*# sourceMappingURL=statefull.css.map */

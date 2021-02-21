@@ -1,0 +1,49 @@
+body {
+  background: #efefef;
+}
+body #app {
+  max-width: 1000px;
+  background: white;
+  margin: 0 auto;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  padding: 20px 40px;
+}
+body .container {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 30px;
+}
+body .container .content {
+  padding-top: 50px;
+}
+body .image-view img {
+  max-width: 100%;
+}
+body .framer {
+  padding: 20px;
+}
+body .framer .content {
+  background: white;
+}
+body .simple-canvas {
+  width: 500px;
+  height: 500px;
+}
+body .simple-canvas .row {
+  display: flex;
+}
+body .simple-canvas .cell {
+  height: 40px;
+  width: 100%;
+}
+
+.todo-2 {
+  display: flex;
+}
+
+img {
+  max-width: 100%;
+}
+
+/*# sourceMappingURL=stateless.css.map */
