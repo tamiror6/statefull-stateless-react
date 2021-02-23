@@ -1,48 +1,108 @@
-import React, { Component } from "react";
+import React, { useState, useEffect, Component } from "react";
 import { SimpleCanvas, SimpleGallery, TodoItem2 } from "./ComponentsStateless";
-class Counter extends Component {
-  state = { count: 0 };
-  render() {
-    return (
-      <div>
-        <h3>{this.state.count}</h3>
-        <button
-          onClick={() => {
-            this.setState({ count: this.state.count - 1 });
-          }}
-        >
-          -
-        </button>
-        <button
-          onClick={() => {
-            this.setState({ count: this.state.count + 1 });
-          }}
-        >
-          +
-        </button>
-      </div>
-    );
-  }
+// class Counter extends Component {
+//   state = { count: 0 };
+//   render() {
+//     return (
+//       <div>
+//         <h3>{this.state.count}</h3>
+//         <button
+//           onClick={() => {
+//             this.setState({ count: this.state.count - 1 });
+//           }}
+//         >
+//           -
+//         </button>
+//         <button
+//           onClick={() => {
+//             this.setState({ count: this.state.count + 1 });
+//           }}
+//         >
+//           +
+//         </button>
+//       </div>
+//     );
+//   }
+// }
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <h3>{count}</h3>
+      <button
+        onClick={() => {
+          setCount(count - 1);
+        }}
+      >
+        -
+      </button>
+      <button
+        onClick={() => {
+          setCount((count) => count + 1);
+        }}
+      >
+        +
+      </button>
+    </div>
+  );
 }
-class Gallery extends Component {
-  state = { images: ["https://i.ytimg.com/vi/MCn9lL94sxQ/maxresdefault.jpg"] };
-  render() {
-    return (
-      <div>
-        <SimpleGallery images={this.state.images}></SimpleGallery>
-        <button
-          onClick={() => {
-            let src = prompt("src");
-            const imagesNew = [...this.state.images];
-            imagesNew.push(src);
-            this.setState({ images: imagesNew });
-          }}
-        >
-          Add{" "}
-        </button>
-      </div>
-    );
-  }
+// class Gallery extends Component {
+//   state = { images: ["https://i.ytimg.com/vi/MCn9lL94sxQ/maxresdefault.jpg"] };
+//   render() {
+//     return (
+//       <div>
+//         <SimpleGallery images={this.state.images}></SimpleGallery>
+//         <button
+//           onClick={() => {
+//             let src = prompt("src");
+//             const imagesNew = [...this.state.images];
+//             imagesNew.push(src);
+//             this.setState({ images: imagesNew });
+//           }}
+//         >
+//           Add{" "}
+//         </button>
+//       </div>
+//     );
+//   }
+// }
+
+function Gallery(props) {
+  const [images, setImages] = useState([
+    "https://i.ytimg.com/vi/MCn9lL94sxQ/maxresdefault.jpg",
+  ]);
+  const [numImages, setNumImages] = useState(images.length);
+
+  useEffect(() => {
+    function foo(word) {
+      console.log(word);
+    }
+    foo("hi ");
+    return () => {
+      foo("bye ");
+    };
+  }, [numImages]);
+
+  const handleClick = () => {
+    let src = prompt("new img src");
+    const imagesNew = [...images, src];
+    setImages((prev) => imagesNew);
+    setNumImages((prevNumImages) => prevNumImages + 1);
+  };
+  return (
+    <div>
+      <h1
+        onClick={() => {
+          setNumImages((prev) => prev + 1);
+        }}
+      >
+        {numImages}
+      </h1>
+      <SimpleGallery images={images}></SimpleGallery>
+      <button onClick={handleClick}>Add </button>
+    </div>
+  );
 }
 class Canvasv2 extends Component {
   cycleColors = ["red", "yellow", "blue", "orange"];
