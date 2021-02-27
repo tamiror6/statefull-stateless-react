@@ -1,7 +1,7 @@
 import React from "react";
 import "./stateless.css";
 
-import * as Comps from "./ComponentsStateless";
+import * as Comps from "../typescript/stateless";
 
 const Container = ({ title, description, exampleProps, children }) => {
   const copiedProps = { ...exampleProps };

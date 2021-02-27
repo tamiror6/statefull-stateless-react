@@ -1,7 +1,7 @@
 import React from "react";
 import "./statefull.css";
 
-import * as Comps from "./components";
+import * as Comps from "../typescript/statefull";
 
 const Container = ({ title, description, exampleProps, children }) => {
   const copiedProps = { ...exampleProps };
