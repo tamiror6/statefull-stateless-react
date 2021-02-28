@@ -79,7 +79,7 @@ interface IState {
     data :string[][],
 
 }
-class Canvasv2 extends Component<any,IState> {
+class Canvasv2 extends Component<{},IState> {
   cycleColors = ["red", "yellow", "blue", "orange"];
   cycleData = [
     [0, 0, 0, 0],
@@ -125,14 +125,13 @@ class Canvasv2 extends Component<any,IState> {
 }
 
 
-type TodoProps = {
-    // using `interface` is also ok
+interface TodoProps  {
   };
-type ListItem={
+interface ListItem{
     title:string,
     done:boolean,
 }
-type TodoState = {
+interface TodoState  {
     todos:ListItem[] ,
     addInput:string,
     searchInput:string,
@@ -193,7 +192,7 @@ class TodoApp extends Component<TodoProps,TodoState>{
   };
 
   handleChangeOnSearch = (e:React.FormEvent<HTMLInputElement>) => {
-    this.setState({ searchInput: e.currentTarget.value });// why e.target.value is problem with type script but this one okay?
+    this.setState({ searchInput: e.currentTarget.value });// why e.target.value is problem with interface script but this one okay?
   };
   
   handleChangeOnFilter = (e:React.FormEvent<HTMLSelectElement>):void => {
@@ -233,6 +232,24 @@ class TodoApp extends Component<TodoProps,TodoState>{
             ))}
           </select>
         </div>
+        <div className="addition-bar">
+          {" "}
+          <input
+            value={this.state.addInput}
+            onChange={(e:React.FormEvent<HTMLInputElement> )=> {
+              this.setState({ addInput: e.currentTarget.value });
+              
+            }}
+          ></input>
+          <button
+            className="add"
+            onClick={() => {
+              this.handleAddition(this.state.addInput);
+            }}
+          >
+            Add{" "}
+          </button>
+        </div>
         <div className="todo-items">
           {this.state.todos.filter(this.filterByStatusPredicate).map(
             (item) =>
@@ -250,23 +267,7 @@ class TodoApp extends Component<TodoProps,TodoState>{
           )}
         </div>
 
-        <div className="addition-bar">
-          {" "}
-          <input
-            value={this.state.addInput}
-            onChange={(e) => {
-              this.setState({ addInput: e.target.value });
-            }}
-          ></input>
-          <button
-            className="add"
-            onClick={() => {
-              this.handleAddition(this.state.addInput);
-            }}
-          >
-            Add{" "}
-          </button>
-        </div>
+        
       </div>
     );
   }

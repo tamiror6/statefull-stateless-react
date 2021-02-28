@@ -21,12 +21,12 @@ const Title: React.FC<TitleProps> = (props) => {
   };
 
 
-  type imageViewProps =  {
+  interface ImageViewProps   {
     src:string;
     caption:string;
   }
   
-  const ImageView = (props:imageViewProps) => {
+  const ImageView:React.FC<ImageViewProps> = (props) => {
     return (
       <figure>
         <img src={props.src} />
@@ -39,7 +39,7 @@ interface SimpleGalleryProps{
 images:string[]
 }
 
-  const SimpleGallery = (props:SimpleGalleryProps) => {
+  const SimpleGallery: React.FC<SimpleGalleryProps>= (props) => {
     return (
       <div>
         {props.images.map((src, index) => (
@@ -56,7 +56,7 @@ images:string[]
     done:boolean;
 
   }
-  const TodoItem = (props:todoItemProps) => {
+  const TodoItem:React.FC<todoItemProps> = (props) => {
     return (
       <p
         onClick={props.onClick}
@@ -71,7 +71,7 @@ images:string[]
     data:string[][],
   }
   
-  const SimpleCanvas = (props:SimpleCanvasProps) => {
+  const SimpleCanvas:React.FC<SimpleCanvasProps> = (props) => {
     return (
       <div className="simple-canvas ">
         {props.data.map((row,rowIndex) => (
@@ -85,13 +85,13 @@ images:string[]
     );
   };
 
-  type specialButtonProps= {
+  type SpecialButtonProps= {
     onSpecialClick() :void;
     onClick():void;
     children:string;
   }
 
-  const SpecialButton = (props:specialButtonProps) => (
+  const SpecialButton:React.FC<SpecialButtonProps> = (props) => (
     <button
       onClick={(e) => {
         if (e.ctrlKey || e.metaKey) {
@@ -112,7 +112,7 @@ type todoItem2Props = {
   onRemove():void;
   title:string;
 }
-  const TodoItem2 = (props:todoItem2Props) => (
+  const TodoItem2:React.FC<todoItem2Props> = (props) => (
     <div className="todo-2">
       {" "}
       <TodoItem
@@ -139,7 +139,7 @@ type todoItem2Props = {
     onCellClick(rowIndex:number, colIndex:number, color:string):void;
 
   }
-  const SimpleCanvas2 = (props:SimpleCanvas2Props) => {
+  const SimpleCanvas2:React.FC<SimpleCanvas2Props> = (props) => {
     return (
       <div className="simple-canvas ">
         {props.data.map((row, rowIndex) => (
