@@ -124,9 +124,6 @@ class Canvasv2 extends Component<{},IState> {
   }
 }
 
-
-interface TodoProps  {
-  };
 interface ListItem{
     title:string,
     done:boolean,
@@ -139,13 +136,13 @@ interface TodoState  {
     
   };
   enum FilterEnum  { // gave valies to each member for comparing them in the future
-    all="all",
-    completed="completed",
-    incompleted = "incompleted",
+    ALL="all",
+    COMPLETED="completed",
+    INCOMPLETED = "incompleted",
    
   }
 
-class TodoApp extends Component<TodoProps,TodoState>{
+class TodoApp extends Component<{},TodoState>{
   constructor(props:{}) {
     super(props);
     this.state = {
@@ -155,7 +152,7 @@ class TodoApp extends Component<TodoProps,TodoState>{
       ],
       addInput: "",
       searchInput: "",
-      filterValue: FilterEnum.all,
+      filterValue: FilterEnum.ALL,
     };
   }
  
@@ -180,13 +177,13 @@ class TodoApp extends Component<TodoProps,TodoState>{
     });
   };
   filterByStatusPredicate = (item:ListItem) => {
-    if (this.state.filterValue === FilterEnum.all) {
+    if (this.state.filterValue === FilterEnum.ALL) {
       return true;
     }
-    if (this.state.filterValue === FilterEnum.incompleted) {
+    if (this.state.filterValue === FilterEnum.INCOMPLETED) {
       return !item.done;
     }
-    if (this.state.filterValue === FilterEnum.completed) {
+    if (this.state.filterValue === FilterEnum.COMPLETED) {
       return item.done;
     }
   };
@@ -198,14 +195,14 @@ class TodoApp extends Component<TodoProps,TodoState>{
   handleChangeOnFilter = (e:React.FormEvent<HTMLSelectElement>):void => {
     const selection =  e.currentTarget.value
     switch (selection) {
-        case FilterEnum.all:
-          this.setState({filterValue:FilterEnum.all})
+        case FilterEnum.ALL:
+          this.setState({filterValue:FilterEnum.ALL})
           break;
-        case FilterEnum.completed:
-            this.setState({filterValue:FilterEnum.completed})
+        case FilterEnum.COMPLETED:
+            this.setState({filterValue:FilterEnum.COMPLETED})
             break;
-        case FilterEnum.incompleted:
-            this.setState({filterValue:FilterEnum.incompleted})
+        case FilterEnum.INCOMPLETED:
+            this.setState({filterValue:FilterEnum.INCOMPLETED})
           break;
       }
 }
